@@ -61,6 +61,55 @@
 <!-- ここから上を編集する必要はありません -->
 
 <!-- ここにモックのtable要素を貼り付けます -->
+	<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>従業員名</th>
+							<th>入社日</th>
+							<th>扶養人数</th>
+						</tr>
+					</thead>
+					<tbody>
+				
+						<tr>
+						
+						<td>
+							<a>
+							<span th:each="employee:${employeeList}">
+							<a href="/employee/showDetail?id=1">
+							<span th:text="${employee.name}">あああ</span>
+							<br>
+							</span>
+							</a>
+							</td>
+						
+							
+						
+							<td>
+							
+							<span th:each="employee:${employeeList}">
+							<span th:text="${employee.hireDate}">あああ</span>
+							<br>
+							</span>
+							
+							</td>
+						
+							
+							
+							<td>
+						
+							<span th:each="employee:${employeeList}">
+							<span th:text="${employee.dependentsCount}">あああ</span>人
+							<br>
+							</span>
+							</td>
+						</tr>
+						
+						
+					
+					</tbody>
+				
+				</table>
 
 
 
