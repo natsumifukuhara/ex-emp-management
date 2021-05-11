@@ -1,5 +1,9 @@
 package jp.co.sample.controller;
 
+
+
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.BeanUtils;
@@ -67,22 +71,20 @@ public class AdministratorController {
 	//
 	@RequestMapping("/login")
 	public String login(LoginForm form,Model model) {
-		administratorService.login(form.getMailAddress(),form.getPassword());
-		Administrator administrator = new Administrator();
-		administrator.setMailAddress(form.getMailAddress());
-		administrator.setPassword(form.getPassword());
-
+		Administrator administrator = administratorService.login(form.getMailAddress(),form.getPassword());
+	
 		if(administrator == null) {
-			System.out.println("不正です");
+			String message = "メールアドレスまたはパスワードが不正です。";
+			model.addAttribute("message",message);
+			return "administrator/login";
 			
 		}else {
-			//ここ直す
 		session.setAttribute("administratorName", administrator);
-		
-		}
-		return "foward:/employee/showList";
+		return "forward:/employee/showList";
 		}
 	}
+}
+
 
 	
 
