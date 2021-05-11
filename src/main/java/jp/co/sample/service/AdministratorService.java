@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import jp.co.sample.domain.Administrator;
 import jp.co.sample.repository.AdministratorRepository;
 
+
 @Service
 @Transactional
 public class AdministratorService {
@@ -19,4 +20,10 @@ public class AdministratorService {
 		administratorRepository.insert(administrator);
 	}
 	
+	//ログイン処理をする
+	public Administrator login(String mailAddress,String password) {
+		administratorRepository.findByMailAddressAndPassword(mailAddress, password);
+		return administratorRepository.findByMailAddressAndPassword(mailAddress, password);
+	}
 }
+
