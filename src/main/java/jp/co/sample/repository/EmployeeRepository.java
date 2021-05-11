@@ -1,5 +1,6 @@
 package jp.co.sample.repository;
 
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,13 +34,13 @@ public class EmployeeRepository {
 		employee.setTelephone(rs.getString("telephone"));
 		employee.setSalary(rs.getInt("salary"));
 		employee.setCharacteristics(rs.getString("characteristics"));
-		employee.setDependentsCount(rs.getInt("depemdemts_count"));
+		employee.setDependentsCount(rs.getInt("dependents_count"));
 		return employee;
 	};
 	
 	//従業員一覧情報を取得する（入社日順）
 	public List<Employee> findAll(){
-		String sql="SELECT * FROM employees ORDER BY hire_date";
+		String sql="SELECT id,name,image,gender,hire_date,mail_address,zip_code,address,telephone,salary,characteristics,dependents_count FROM employees";
 		List<Employee> employeeList=template.query(sql, EMPLOYEE_ROW_MAPPER);
 		return employeeList;
 	}
