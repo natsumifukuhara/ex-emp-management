@@ -1,7 +1,6 @@
 package jp.co.sample.controller;
 
 
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,12 +26,6 @@ public class EmployeeController {
 		model.addAttribute("employeeList",employeeList);
 		return "employee/list";
 		
-	}
-	
-	@ModelAttribute
-	public UpdateEmployeeForm setUpdateEmployeeForm() {
-		UpdateEmployeeForm form = new UpdateEmployeeForm();
-		return form;
 	}
 	
 	@RequestMapping("/showDetail")
